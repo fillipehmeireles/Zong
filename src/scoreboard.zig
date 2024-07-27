@@ -25,7 +25,7 @@ pub const ScoreBoard = struct {
         const x: c_int = @divTrunc(w_width, 2);
         const y: c_int = @intFromFloat(game_borders.top_border.rect.height);
         _ = try std.fmt.bufPrint(&score_text, "{s} : {s}", .{ self.p1_s, self.p2_s });
-        rl.DrawText(&score_text, x - 10, y, 30, self.color);
+        rl.DrawText(&score_text, x - 25, y, 30, self.color);
     }
 
     pub fn update(self: *ScoreBoard, p1s: i32, p2s: i32) !void {
