@@ -25,7 +25,7 @@ pub fn main() !void {
     // const allocator = gpa.allocator();
     const game_screen = GameScreen.init(W_WIDTH, W_HEIGHT);
     rl.InitWindow(game_screen.width, game_screen.height, "Zong");
-    const game_borders = GameBorders{
+    const game_borders: GameBorders = .{
         .top_border = Border{
             .rect = rl.Rectangle{ .y = 0, .x = 0, .width = W_WIDTH, .height = 8 },
         },
@@ -39,8 +39,8 @@ pub fn main() !void {
             .rect = rl.Rectangle{ .y = 0, .x = W_WIDTH - 8, .width = 8, .height = W_HEIGHT },
         },
     };
-    const game_net = Net{ .rect = rl.Rectangle{ .y = game_borders.top_border.rect.height, .x = W_WIDTH / 2, .width = 10, .height = W_HEIGHT - (game_borders.top_border.rect.height + game_borders.bottom_border.rect.height) } };
-    var p1 = Player{ .rect = rl.Rectangle{ .y = W_HEIGHT / 2, .x = game_borders.left_border.rect.width, .width = 8, .height = 80 }, .color = rl.WHITE };
+    const game_net: Net = .{ .rect = rl.Rectangle{ .y = game_borders.top_border.rect.height, .x = W_WIDTH / 2, .width = 10, .height = W_HEIGHT - (game_borders.top_border.rect.height + game_borders.bottom_border.rect.height) } };
+    var p1: Player = .{ .rect = rl.Rectangle{ .y = W_HEIGHT / 2, .x = game_borders.left_border.rect.width, .width = 8, .height = 80 }, .color = rl.WHITE };
     var p2 = Player{ .rect = rl.Rectangle{ .y = W_HEIGHT / 2, .x = W_WIDTH - game_borders.right_border.rect.width - 10, .width = 10, .height = 80 }, .color = rl.WHITE };
 
     var winner: i32 = undefined;
